@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [CheckoutController::class, 'index']);
+Route::post('/process-payment-ticket', [CheckoutController::class, 'processPaymentTicket']);
+Route::post('/process-payment-card', [CheckoutController::class, 'processPaymentCard']);
